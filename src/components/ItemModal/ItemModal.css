@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+  z-index: 1000;
+}
+
+.modal__opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content {
+  width: min(100%, 560px);
+  max-height: min(92vh, 720px);
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.18);
+  display: grid;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.modal__content_type_image {
+  padding: 18px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: url(../../assets/Union.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  transform: scale(1.03);
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal__caption {
+  margin: 0;
+  color: #111827;
+  font-family: "Cabinet Grotesk";
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.modal__weather {
+  margin: 0;
+  color: #4b5563;
+  font-family: "Cabinet Grotesk";
+  font-size: 15px;
+  line-height: 22px;
+}
