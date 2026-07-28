@@ -1,6 +1,7 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
+import Footer from "../Footer/Footer";
 import "./Main.css";
 
 function Main({ weatherData, handleCardClick }) {
@@ -28,10 +29,7 @@ function Main({ weatherData, handleCardClick }) {
             })}
         </ul>
       </section>
-      <footer className="footer">
-        <p className="footer__developer">Developed by Christian Vazquez</p>
-        <p className="footer__year">2026</p>
-      </footer>
+      <Footer />
     </main>
   );
 }
