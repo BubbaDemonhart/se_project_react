@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants.js";
+import {
+  coordinates,
+  apiKey,
+  defaultClothingItems as initialDefaultClothingItems,
+} from "../../utils/constants.js";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
+import Footer from "../Footer/Footer.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
@@ -16,6 +21,9 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [clothingItems, setClothingItems] = useState(
+    initialDefaultClothingItems,
+  );
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -31,7 +39,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -43,12 +51,18 @@ function App() {
     <div className="app">
       <div className="page__wrapper">
         <Header onAddButtonClick={onAddButtonClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Main
+          weatherData={weatherData}
+          handleCardClick={handleCardClick}
+          clothingItems={clothingItems}
+        />
+        <Footer />
       </div>
       <ModalWithForm
         buttonText="Add garment"
         title="New garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
+        name="add-garment"
         onClose={closeModal}
       >
         <label htmlFor="name" className="modal__label">
@@ -57,7 +71,9 @@ function App() {
             type="text"
             className="modal__input"
             id="name"
+            name="name"
             placeholder="name"
+            required
           />
         </label>
         <label htmlFor="imageURL" className="modal__label">
@@ -66,33 +82,52 @@ function App() {
             type="url"
             className="modal__input"
             id="imageURL"
+            name="imageURL"
             placeholder="Image URL"
+            required
           />
         </label>
         <fieldset className="modal__radio-button">
           <legend className="modal__legened">Select the weather type</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input type="radio" className="modal__radio-input" id="hot" /> Hot
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="hot"
+              name="weather"
+              value="hot"
+            />
+            Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="warm" /> Warm
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="warm"
+              name="weather"
+              value="warm"
+            />
+            Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
-            <input type="radio" className="modal__radio-input" id="cold" /> Cold
+            <input
+              type="radio"
+              className="modal__radio-input"
+              id="cold"
+              name="weather"
+              value="cold"
+            />
+            Cold
           </label>
         </fieldset>
       </ModalWithForm>
-      <ItemModal
-        activeModal={activeModal}
-        card={selectedCard}
-        onClose={closeModal}
-      />
+      <ItemModal isOpen={activeModal === "preview"} card={selectedCard} onClose={closeModal} />
     </div>
   );
 }
