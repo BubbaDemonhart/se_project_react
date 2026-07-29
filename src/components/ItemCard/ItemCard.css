@@ -19,7 +19,6 @@
   width: 73px;
   height: 24px;
   border-radius: 4px;
-  font-style: bold;
 }
 
 .card__image {
@@ -28,4 +27,5 @@
   width: 328px;
   height: 328px;
   object-fit: cover;
+  cursor: pointer;
 }

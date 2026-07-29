@@ -16,7 +16,6 @@
   margin: 0;
   font-family: "Cabinet Grotesk";
   font-weight: 700;
-  font-style: bold;
   font-size: 20px;
   line-height: 24px;
 }
@@ -25,7 +24,6 @@
   margin: 0 20px 0 auto;
   font-family: "Cabinet Grotesk";
   font-weight: 700;
-  font-style: bold;
   font-size: 20px;
   line-height: 24px;
   background-color: transparent;
@@ -43,7 +41,6 @@
   height: 25px;
   font-family: "Cabinet Grotesk";
   font-weight: 700;
-  font-style: bold;
   font-size: 20px;
   line-height: 100%;
 }
