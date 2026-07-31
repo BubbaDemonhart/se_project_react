@@ -14,9 +14,10 @@ function ItemModal({ isOpen, onClose, card }) {
           alt={card.name || "Garment preview"}
           className="modal__image"
         />
-        <div className="modal__footer"></div>
-        <h2 className="modal__caption">{card.name}</h2>
-        <p className="modal__weather">Weather: {card.weather}</p>
+        <div className="modal__details">
+          <h2 className="modal__caption">{card.name}</h2>
+          <p className="modal__weather">Weather: {card.weather}</p>
+        </div>
       </div>
     </div>
   );
