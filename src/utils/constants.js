@@ -149,7 +149,7 @@ export const defaultClothingItems = [
   {
     _id: 15,
     name: "Sweatshirt",
-    weather: "warm",
+    weather: "cold",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sweatshirt.png?etag=008a9674757bea2e0bdb31242e364be0",
   },
   {

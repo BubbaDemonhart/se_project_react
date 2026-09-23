@@ -23,3 +23,7 @@ WTWR is a React + Vite weather-driven wardrobe suggestion app. It fetches local 
 - The app uses the OpenWeatherMap API via a provided API key in `src/utils/constants.js`.
 - Clothing items are managed in React state and passed down from `App` to `Main`.
 - The project includes basic client-side validation for the add garment form.
+
+## Project Pitch Video
+
+- [Video](https://drive.google.com/file/d/1fa_5wTlGTV_-9yzed7oyy5B8M_Z20ElD/view?usp=drive_link)
