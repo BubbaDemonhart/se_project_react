@@ -10,7 +10,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
-import AddItemModal from "../AddItemModal/addItemModal.jsx";
+import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, addItem, removeItem } from "../../utils/api.js";
 
@@ -43,7 +43,7 @@ function App() {
       weather: inputValues.weatherType,
     })
       .then((data) => {
-        setClothingItems((items) => [data, ...clothingItems]);
+        setClothingItems((prev) => [data, ...prev]);
         closeModal();
       })
       .catch(console.error);
@@ -60,7 +60,9 @@ function App() {
   const deleteItemHandler = (id) => {
     removeItem(id)
       .then(() => {
-        setClothingItems((items) => items.filter((item) => item._id !== id));
+        setClothingItems((items) =>
+          items.filter((item) => (item._id ?? item.id) !== id),
+        );
         closeModal();
       })
       .catch(console.error);

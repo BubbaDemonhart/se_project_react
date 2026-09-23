@@ -5,15 +5,16 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const filteredOption = weatherOptions.filter((option) => {
+  const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day == weatherData.isDay &&
       option.condition === weatherData.condition
     );
   });
 
-  const weatherOptionUrl = filteredOption[0]?.url;
-  const weatherOptionCondition = filteredOption[0]?.condition;
+  const option = filteredOptions[0];
+  const weatherOptionUrl = option[0]?.url;
+  const weatherOptionCondition = option[0]?.condition;
 
   return (
     <section className="weather-card">
